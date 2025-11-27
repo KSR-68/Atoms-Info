@@ -1,0 +1,81 @@
+.element-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 45px;
+  min-height: 55px;
+  border: 2px solid transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.element-card:hover {
+  transform: scale(1.15);
+  z-index: 10;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.element-card.selected {
+  border-color: #fff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  transform: scale(1.1);
+  z-index: 5;
+}
+
+.atomic-number {
+  font-size: 0.6rem;
+  opacity: 0.8;
+  color: #1a1a2e;
+}
+
+.symbol {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #1a1a2e;
+}
+
+.name {
+  font-size: 0.5rem;
+  text-align: center;
+  color: #1a1a2e;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .element-card {
+    min-width: 35px;
+    min-height: 45px;
+    padding: 2px;
+  }
+
+  .symbol {
+    font-size: 1rem;
+  }
+
+  .name {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .element-card {
+    min-width: 25px;
+    min-height: 35px;
+    padding: 1px;
+  }
+
+  .atomic-number {
+    font-size: 0.5rem;
+  }
+
+  .symbol {
+    font-size: 0.8rem;
+  }
+}

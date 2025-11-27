@@ -1,0 +1,176 @@
+.atom-visualization {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 12px;
+  overflow: visible;
+}
+
+.atom-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.atom-scaled {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
+}
+
+.nucleus {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, #ff6b6b 0%, #ee5a5a 50%, #c44569 100%);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  box-shadow: 0 0 20px rgba(255, 107, 107, 0.6),
+              0 0 40px rgba(255, 107, 107, 0.3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.nucleus-symbol {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.nucleus-info {
+  font-size: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.6),
+                0 0 40px rgba(255, 107, 107, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 107, 107, 0.8),
+                0 0 60px rgba(255, 107, 107, 0.4);
+  }
+}
+
+.electron-shell {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orbit-path {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(100, 200, 255, 0.3);
+  border-radius: 50%;
+}
+
+.electrons-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: rotate linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.electron {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #64f4ff 0%, #48dbfb 50%, #0abde3 100%);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  margin-top: -4px;
+  margin-left: -4px;
+  box-shadow: 0 0 6px rgba(100, 244, 255, 0.8),
+              0 0 12px rgba(100, 244, 255, 0.4);
+}
+
+.shell-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 3px 8px;
+  border-radius: 15px;
+  font-size: 0.7rem;
+}
+
+.shell-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.electron-count {
+  color: #64f4ff;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .atom-visualization {
+    padding: 10px;
+  }
+
+  .nucleus {
+    width: 45px;
+    height: 45px;
+  }
+
+  .nucleus-symbol {
+    font-size: 1rem;
+  }
+
+  .nucleus-info {
+    font-size: 0.4rem;
+  }
+
+  .electron {
+    width: 6px;
+    height: 6px;
+    margin-top: -3px;
+    margin-left: -3px;
+  }
+
+  .shell-legend {
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  .legend-item {
+    padding: 2px 6px;
+    font-size: 0.6rem;
+  }
+}

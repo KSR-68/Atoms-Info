@@ -1,0 +1,391 @@
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+  padding: 20px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.element-popup {
+  background: #1a1a2e;
+  border-radius: 16px;
+  max-width: 900px;
+  max-height: 90vh;
+  width: 100%;
+  overflow: hidden;
+  animation: popIn 0.3s ease;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.close-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.popup-layout {
+  display: flex;
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+.popup-left {
+  flex: 0 0 45%;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+.popup-header {
+  padding: 30px 20px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.popup-atomic-number {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-size: 1rem;
+  opacity: 0.8;
+  color: #1a1a2e;
+}
+
+.popup-symbol {
+  display: block;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #1a1a2e;
+  line-height: 1;
+}
+
+.popup-name {
+  display: block;
+  font-size: 1.5rem;
+  color: #1a1a2e;
+  margin-top: 5px;
+}
+
+.popup-right {
+  flex: 1;
+  padding: 25px;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.info-section {
+  margin-bottom: 20px;
+}
+
+.info-section h3 {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.info-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+
+.info-item.full-width {
+  grid-column: span 2;
+}
+
+.info-label {
+  display: block;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  display: block;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+.block-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.block-badge[data-block="s"] {
+  background: #ff6b6b;
+  color: #1a1a2e;
+}
+
+.block-badge[data-block="p"] {
+  background: #feca57;
+  color: #1a1a2e;
+}
+
+.block-badge[data-block="d"] {
+  background: #48dbfb;
+  color: #1a1a2e;
+}
+
+.block-badge[data-block="f"] {
+  background: #ff9f43;
+  color: #1a1a2e;
+}
+
+.type-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #1a1a2e;
+}
+
+.structure-grid {
+  display: flex;
+  gap: 10px;
+}
+
+.structure-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.structure-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.structure-item.protons .structure-icon {
+  background: #ff6b6b;
+  color: #1a1a2e;
+}
+
+.structure-item.neutrons .structure-icon {
+  background: #c8d6e5;
+  color: #1a1a2e;
+}
+
+.structure-item.electrons .structure-icon {
+  background: #48dbfb;
+  color: #1a1a2e;
+}
+
+.structure-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.structure-count {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1;
+}
+
+.structure-label {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.electron-config {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.shell-config {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.shell-number {
+  width: 20px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.shell-bar {
+  flex: 1;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.shell-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #48dbfb, #0abde3);
+  border-radius: 5px;
+  transition: width 0.5s ease;
+}
+
+.shell-electrons {
+  width: 20px;
+  text-align: right;
+  font-size: 0.8rem;
+  color: #48dbfb;
+  font-weight: bold;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .popup-overlay {
+    padding: 10px;
+  }
+
+  .element-popup {
+    max-height: 95vh;
+    border-radius: 12px;
+  }
+
+  .popup-layout {
+    flex-direction: column;
+    max-height: 95vh;
+    overflow-y: auto;
+  }
+
+  .popup-left {
+    flex: none;
+  }
+
+  .popup-header {
+    padding: 20px 15px 15px;
+  }
+
+  .popup-symbol {
+    font-size: 3rem;
+  }
+
+  .popup-name {
+    font-size: 1.2rem;
+  }
+
+  .popup-right {
+    padding: 15px;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .info-item.full-width {
+    grid-column: span 2;
+  }
+
+  .structure-grid {
+    flex-direction: row;
+  }
+
+  .structure-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 4px;
+    padding: 8px;
+  }
+
+  .structure-details {
+    align-items: center;
+  }
+
+  .close-button {
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 400px) {
+  .popup-symbol {
+    font-size: 2.5rem;
+  }
+
+  .popup-name {
+    font-size: 1rem;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-item.full-width {
+    grid-column: span 1;
+  }
+}

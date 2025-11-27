@@ -15,7 +15,7 @@
 
 ## 🎨 Demo
 
-Live demo: [http://localhost:5173](http://localhost:5173) (dev server)
+Live demo: https://elements-info.netlify.app/
 
 ## 🛠 Tech Stack
 
